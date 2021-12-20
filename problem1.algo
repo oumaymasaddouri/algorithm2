@@ -1,0 +1,14 @@
+ALGORITHM problem1
+
+VAR A,B :  ARRAY_OF INTEGER;
+    sum,i,j : INTEGER ;
+
+BEGIN
+    sum := 0 
+    FOR i FROM 0 TO A.length-1 STEP 1  DO
+        FOR j FROM 0 TO B.length-1 STEP 1  DO
+            if ((A[i] = B[j]) ) THEN 
+            sum := sum + A[i]*2
+        END_FOR
+    END_FOR
+END

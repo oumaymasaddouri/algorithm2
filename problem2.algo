@@ -1,0 +1,28 @@
+ALGORITHM Probleme2
+VAR
+    T1 : ARRAY_OF INTEGER[n];
+    T2 : ARRAY_OF INTEGER[z];
+    htab: HASH_TABLE<integer,integer>
+    i,j,sum: INTEGER;
+    ch :STRING;
+BEGIN
+   sum =0;
+ FOR i FROM 0 TO n-1 DO
+    htab.insert(T1[i],1)
+ END_FOR
+ FOR j FROM 0 TO z-1  DO
+     IF (htab.lookup(T2[j]) = true) THEN
+         htab.insert(T2[j],2);
+      ELSE
+      htab.insert(T2[j],1);
+     END_IF
+ END_FOR
+ FOR i FROM 0 TO n-1  DO
+     IF (htab.get(T1[i])=2) THEN
+         sum:= sum + (T1[i]*2);
+         ch := ch + ',' + str(T1[i]);
+     END_IF
+ END_FOR
+  write('Sum of overlapping elements:',sum);
+  write('Common elements are ',ch)
+END
