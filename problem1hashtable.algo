@@ -1,0 +1,39 @@
+ALGORITHM problem1hashtable
+VAR
+  i,j,common:INTEGER;
+    tab1 : ARRAY_OF INTEGER[];
+    tab2 : ARRAY_OF INTEGER[];
+    hash:HASH_TABLE<INTEGER,INTEGER>;
+    distincts:=0;
+
+BEGIN
+    ALGORITHM unique2
+VAR
+      i,j,distincts:INTEGER;
+    tab1 : ARRAY_OF INTEGER[];
+    tab2 : ARRAY_OF INTEGER[];
+    hash:HASH_TABLE<INTEGER,INTEGER>;
+    distincts:=0;
+BEGIN
+
+    FOR i FROM 0 TO tab1.length-1   DO
+        hash.insert(tab1[i],1)
+    END_FOR
+    FOR j FROM 0 TO tab2.length-1   DO
+       IF (hash.lookup(tab2[j])=true) THEN
+       hash.insert(tab2[j],2)
+       ELSE 
+       hash.insert(tab2[j],1)
+       END_IF
+    END_FOR
+    FOR i FROM 0 TO tab1.length-1   DO
+        IF (hash.get(tab1[i]=1)) THEN
+            distincts:=distincts+tab1[i]
+        END_IF
+    END_FOR
+    FOR j FROM 0 TO tab2.length-1  DO
+        IF (hash.get(tab2[j]=1)) THEN
+            distincts:=distincts+tab2[j]
+        END_IF
+    END_FOR
+END

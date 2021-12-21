@@ -1,0 +1,33 @@
+ALGORITHM problem222
+VAR
+    t1 :ARRAY_OF INTEGER[];
+    t2:ARRAY_OF INTEGER[];
+    i, j, sum:INTEGER;
+    found:BOOLEAN;
+
+BEGIN
+    FOR i FROM 0 TO t1.length-1 STEP 1  DO
+    found:=FALSE;
+    FOR j FROM 0 TO t2.length-1 STEP 1  DO
+        IF (t1[i]==t2[j]) THEN
+          found:=true;
+          break;
+        END_IF
+    END_FOR
+    IF (found==FALSE) THEN
+        sum:=sum+t1[i];
+    END_IF
+    END_FOR
+    FOR j FROM 0 TO t2.length-1 STEP 1  DO
+    found:=FALSE;
+    FOR i FROM 0 TO t1.length-1 STEP 1  DO
+        IF (t2[j]==t1[i]) THEN
+          found:=true;
+          break;
+        END_IF
+    END_FOR
+    IF (found==FALSE) THEN
+        sum:=sum+t2[j];
+    END_IF
+    END_FOR
+END
